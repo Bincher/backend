@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.json({result: '스마트앱프로그래밍 백엔드'})
 })
 
-app.get('/song', (req, res) => {
+app.get('/cookie', (req, res) => {
     const sql = 'select * from Cookie'
     
       db.query(sql, (err, rows) => {
@@ -30,6 +30,39 @@ app.get('/song', (req, res) => {
       })
   })
 
+app.get('/location', (req, res) => {
+    const sql = 'select * from Location'
+    
+      db.query(sql, (err, rows) => {
+          if (err) {
+              res.json({result: "error"})
+              return console.log(err)
+          }
+          res.json(rows)
+      })
+  })
+  app.get('/type', (req, res) => {
+    const sql = 'select * from Type'
+    
+      db.query(sql, (err, rows) => {
+          if (err) {
+              res.json({result: "error"})
+              return console.log(err)
+          }
+          res.json(rows)
+      })
+  })
+  app.get('/rarity', (req, res) => {
+    const sql = 'select * from Rarity'
+    
+      db.query(sql, (err, rows) => {
+          if (err) {
+              res.json({result: "error"})
+              return console.log(err)
+          }
+          res.json(rows)
+      })
+  })
 app.listen(port, () => {
   console.log(`서버 실행됨 (port ${port})`)
 })
